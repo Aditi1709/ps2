@@ -2,9 +2,9 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 
-from loaders.load_orders import load_orders
-from loaders.load_agents import load_agents
-from core.dispatcher import Dispatcher
+from src.loaders.load_orders import load_orders
+from src.loaders.load_agents import load_agents
+from src.core.dispatcher import Dispatcher
 
 st.set_page_config(
     page_title="Smart Delivery Dashboard",

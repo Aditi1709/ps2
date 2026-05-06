@@ -1,6 +1,6 @@
-from core.candidate_generator import generate_candidates
-from core.scoring_engine import score_candidate
-from core.agent_registry import assign_order
+from src.core.candidate_generator import generate_candidates
+from src.core.scoring_engine import score_candidate
+
 
 def get_best_candidate(candidates):
 
@@ -10,6 +10,8 @@ def get_best_candidate(candidates):
     best_candidate = max(candidates, key=lambda x: x["score"])
 
     return best_candidate
+
+
 class Dispatcher:
 
     def dispatch_order(self, order, agents):
@@ -19,7 +21,9 @@ class Dispatcher:
         scored_candidates = []
 
         for candidate in candidates:
+
             scored = score_candidate(candidate)
+
             scored_candidates.append(scored)
 
         best_candidate = get_best_candidate(scored_candidates)
@@ -34,6 +38,7 @@ class Dispatcher:
             if agent["agent_id"] == selected_agent_id:
 
                 agent["active_orders"].append(order["order_id"])
+
                 agent["cumulative_assignments"] += 1
 
                 return {
