@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import matplotlib.pyplot as plt
 
 from loaders.load_orders import load_orders
 from loaders.load_agents import load_agents
